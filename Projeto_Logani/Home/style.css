@@ -1,0 +1,257 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #ccc;
+}
+
+.topo {
+    width: 100vw;
+    height: 20vh;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 0;
+}
+
+.logo {
+    width: 300px;
+    /* Considere ajustar, pode ser grande demais */
+    height: 300px;
+    /* Considere ajustar, pode ser grande demais */
+    object-fit: contain;
+}
+
+nav {
+    display: flex;
+    gap: 100px;
+    padding-top: 15px;
+    margin-bottom: 30px;
+    width: 100%;
+    /* Adicionado: Garante que a nav ocupe toda a largura disponível */
+    justify-content: center;
+    /* Adicionado: Centraliza os itens horizontalmente */
+}
+
+nav a {
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+    padding: 5px 0;
+    position: relative;
+}
+
+nav a:hover {
+    font-weight: bold;
+    transition: all 0.1s ease;
+}
+
+#banner {
+    height: 650px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.destaques-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin: 40px 0;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 700;
+    font-size: 70px;
+    color: #000;
+}
+
+.destaques-container .divider {
+    width: 35%;
+    height: 4px;
+    background-color: #000;
+    border-radius: 2px;
+}
+
+.product-carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.carousel-track {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 0;
+    margin: 20px auto;
+    list-style: none;
+}
+
+.product-card {
+    width: 280px;
+    height: 585px;
+    background-color: #FFFDFA;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.product-card img {
+    width: 100%;
+    height: 60%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.product-card p {
+    font-size: 14px;
+    color: #666;
+    flex-grow: 1;
+    margin-top: 40px;
+}
+
+.product-card button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background-color: #E6DFD8;
+    border: none;
+    border-radius: 5px;
+    color: black;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.product-card button:hover {
+    opacity: 0.8;
+}
+
+.footer {
+    background-color: #B8B7B7;
+    color: #fff;
+    padding: 20px 0;
+    position: relative;
+    margin-top: auto;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-top {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.footer-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 50px;
+}
+
+.footer-nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1em;
+    transition: color 0.3s ease;
+}
+
+.footer-nav a:hover {
+    color: #f0f0f0;
+}
+
+.footer-bottom {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    /* Alinha os itens verticalmente ao centro */
+    padding-bottom: 20px;
+    justify-content: space-between;
+    /* Mantenha space-between aqui */
+}
+
+.footer-info p {
+    margin: 5px 0;
+    /* Mantenha esta linha para o margin-top */
+    font-size: 0.95em;
+    text-align: center;
+    margin-bottom: 10px;
+    /* Adicione esta linha para o espaçamento */
+}
+
+/* Para evitar que o último parágrafo tenha margem extra, o que não é visível mas é boa prática */
+.footer-info p:last-child {
+    margin-bottom: 0;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.footer-logo img {
+    height: 80px;
+    width: auto;
+    max-width: 150px;
+}
+
+.footer-social {
+    display: flex;
+    gap: 25px;
+    /* Aumente o espaçamento entre os ícones. Era 15px. */
+}
+
+.footer-social a {
+    color: #fff;
+    font-size: 2.2em;
+    /* Aumente o tamanho dos ícones. Era 1.5em. */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-social a:hover {
+    color: #f0f0f0;
+}
+
+.footer-copyright {
+    width: 100%;
+    text-align: center;
+    padding-top: 20px;
+    font-size: 0.9em;
+}

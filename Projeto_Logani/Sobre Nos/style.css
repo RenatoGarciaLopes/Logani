@@ -1,0 +1,211 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #FFFFFF;
+}
+
+.topo {
+    width: 100vw;
+    /* 80% da largura da viewport */
+    height: 20vh;
+    /* 80% da altura da viewport */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    /* sombra: x=0, y=4, blur=4, cor preta semi-transparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    /* fundo branco (ou a cor que preferir) */
+    border-radius: 0;
+    /* quadrado sem borda arredondada */
+}
+
+.logo {
+    width: 300px;
+    height: 300px;
+    object-fit: contain;
+}
+
+nav {
+    display: flex;
+    gap: 100px;
+    padding-top: 15px;
+    margin-bottom: 30px;
+    width: 100%;
+    /* Adicionado: Garante que a nav ocupe toda a largura disponível */
+    justify-content: center;
+    /* Adicionado: Centraliza os itens horizontalmente */
+}
+
+nav a {
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+    padding: 5px 0;
+    position: relative;
+}
+
+nav a:hover {
+    font-weight: bold;
+    /* deixa o texto em negrito */
+    transition: all 0.1s ease;
+    /* adiciona uma transição suave */
+}
+
+section ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin: 40px auto;
+    padding: 0;
+    max-width: 1000px;
+}
+
+section li {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    border: 1px solid #ddd;
+    border-radius: 50px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+    background-color: #FFF9F2;
+}
+
+section li:nth-child(2) {
+    flex-direction: row-reverse; /* Inverte a ordem: imagem vai pra direita */
+}
+
+section img {
+    width: 346px;
+    height: 463px;
+    object-fit: cover;
+    border-radius: 20px;
+    flex-shrink: 0;
+}
+
+section p {
+    font-size: 28px;
+    color: black;
+    line-height: 1.5;
+    text-align: justify;
+}
+
+.footer {
+    background-color: #B8B7B7;
+    color: #fff;
+    padding: 20px 0;
+    position: relative;
+    margin-top: auto;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-top {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.footer-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 50px;
+}
+
+.footer-nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1em;
+    transition: color 0.3s ease;
+}
+
+.footer-nav a:hover {
+    color: #f0f0f0;
+}
+
+.footer-bottom {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    /* Alinha os itens verticalmente ao centro */
+    padding-bottom: 20px;
+    justify-content: space-between;
+    /* Mantenha space-between aqui */
+}
+
+.footer-info p {
+    margin: 5px 0;
+    /* Mantenha esta linha para o margin-top */
+    font-size: 0.95em;
+    text-align: center;
+    margin-bottom: 10px;
+    /* Adicione esta linha para o espaçamento */
+}
+
+/* Para evitar que o último parágrafo tenha margem extra, o que não é visível mas é boa prática */
+.footer-info p:last-child {
+    margin-bottom: 0;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.footer-logo img {
+    height: 80px;
+    width: auto;
+    max-width: 150px;
+}
+
+.footer-social {
+    display: flex;
+    gap: 25px;
+    /* Aumente o espaçamento entre os ícones. Era 15px. */
+}
+
+.footer-social a {
+    color: #fff;
+    font-size: 2.2em;
+    /* Aumente o tamanho dos ícones. Era 1.5em. */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-social a:hover {
+    color: #f0f0f0;
+}
+
+.footer-copyright {
+    width: 100%;
+    text-align: center;
+    padding-top: 20px;
+    font-size: 0.9em;
+}
