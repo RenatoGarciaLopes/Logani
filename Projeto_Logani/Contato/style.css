@@ -12,13 +12,11 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
     background-color: #FFFFFF;
 }
 
 .topo {
-    width: 100vw;
-    /* 80% da largura da viewport */
+    width: 100%;
     height: 20vh;
     /* 80% da altura da viewport */
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
@@ -49,19 +47,27 @@ nav {
     /* Adicionado: Centraliza os itens horizontalmente */
 }
 
-nav a {
+.nav-main a {
     text-decoration: none;
     color: #000;
-    font-weight: 500;
+    font-size: 18px;
     padding: 5px 0;
     position: relative;
 }
 
-nav a:hover {
+.nav-main a:not(.active) {
+    opacity: 0.6;
+}
+
+.nav-main a.active,
+.nav-main a:hover {
+    opacity: 1;
     font-weight: bold;
-    /* deixa o texto em negrito */
-    transition: all 0.1s ease;
-    /* adiciona uma transição suave */
+}
+
+.nav-main a:hover {
+    color: #000;
+    /* garante a cor preta */
 }
 
 .container p {
@@ -149,6 +155,14 @@ nav a:hover {
     opacity: 0.8;
 }
 
+section .divider {
+    width: 98%;
+    margin: 0 auto 50px;
+    height: 2px;
+    background-color: #000;
+    border-radius: 2px;
+}
+
 .footer {
     background-color: #B8B7B7;
     color: #fff;
@@ -179,7 +193,7 @@ nav a:hover {
     margin: 0;
     padding: 0;
     display: flex;
-    gap: 50px;
+    gap: 70px;
 }
 
 .footer-nav a {
@@ -231,7 +245,7 @@ nav a:hover {
 
 .footer-social {
     display: flex;
-    gap: 25px;
+    gap: 15px;
     /* Aumente o espaçamento entre os ícones. Era 15px. */
 }
 

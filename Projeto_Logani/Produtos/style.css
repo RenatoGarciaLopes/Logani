@@ -60,42 +60,36 @@ nav {
     opacity: 0.6;
 }
 
-.nav-main a.active, .nav-main a:hover{
+.nav-main a.active,
+.nav-main a:hover {
     opacity: 1;
     font-weight: bold;
 }
 
 .nav-main a:hover {
-    color: #000; /* garante a cor preta */
-}
-
-#banner {
-    height: 650px;
-    width: 100%;
-    object-fit: cover;
-}
-
-.destaques-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-    margin: 40px 0;
-    font-family: 'Work Sans', sans-serif;
-    font-weight: 700;
-    font-size: 70px;
     color: #000;
 }
 
-.destaques-container .divider, .divisao{
-    height: 2px;
-    background-color: #000;
-    border-radius: 2px;
+section {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.destaques-container .divider {
-    width: 35%;
-    align-self: center;
+section>div:first-child {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    padding: 0 20px;
+    flex-wrap: wrap;
+}
+
+section h1 {
+    font-size: 36px;
+    font-weight: 700;
+    margin: 0;
+    color: #6A6060;
 }
 
 .product-carousel {
