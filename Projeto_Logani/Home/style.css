@@ -4,8 +4,22 @@
     padding: 0;
 }
 
+@font-face {
+  font-family: 'WorkSans-regular';
+  src: url('../Fonte/WorkSans-Regular.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'WorkSans-light';
+  src: url('../Fonte/WorkSans-Light.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'WorkSans-regular', sans-serif;
     display: flex;
     flex-direction: column;
 }
@@ -79,7 +93,7 @@ nav.nav-main {
     justify-content: center;
     gap: 15px;
     margin: 40px 0;
-    font-family: 'Work Sans', sans-serif;
+    font-family: 'WorkSans-light', sans-serif;
     font-weight: 700;
     font-size: 70px;
     color: #000;
@@ -95,6 +109,7 @@ nav.nav-main {
 .destaques-container .divider {
     width: 35%;
     align-self: center;
+
 }
 
 .divisao {
