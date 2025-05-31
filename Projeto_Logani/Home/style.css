@@ -5,17 +5,17 @@
 }
 
 @font-face {
-  font-family: 'WorkSans-regular';
-  src: url('../Fonte/WorkSans-Regular.otf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
+    font-family: 'WorkSans-regular';
+    src: url('../Fonte/WorkSans-Regular.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
 
 @font-face {
-  font-family: 'WorkSans-light';
-  src: url('../Fonte/WorkSans-Light.otf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
+    font-family: 'WorkSans-light';
+    src: url('../Fonte/WorkSans-Light.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
 
 body {
@@ -150,7 +150,7 @@ nav.nav-main {
     text-align: center;
 }
 
-.product-card p:last-of-type{
+.product-card p:last-of-type {
     margin-top: 0;
 }
 
@@ -302,10 +302,11 @@ nav.nav-main {
     align-items: center;
     text-align: center;
     height: 100%;
+    padding-top: 40px;
 }
 
 .footer-info p {
-    margin: 5px 0 10px;
+    margin: 5px 0;
     font-size: 0.95em;
 }
 
