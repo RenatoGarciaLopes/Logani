@@ -14,59 +14,57 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #FFFFFF;
+    background-color: #fff;
     border-bottom: 1px solid #ccc;
 }
 
 .topo {
     width: 100%;
     height: 20vh;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: white;
-    border-radius: 0;
+    background-color: #fff;
 }
 
 .logo {
     width: 300px;
-    /* Considere ajustar, pode ser grande demais */
     height: 280px;
-    /* Considere ajustar, pode ser grande demais */
     object-fit: contain;
 }
 
-nav {
+nav.nav-main {
     display: flex;
-    gap: 100px;
-    padding-top: 15px;
-    margin-bottom: 30px;
-    width: 100%;
-    /* Adicionado: Garante que a nav ocupe toda a largura disponível */
     justify-content: center;
-    /* Adicionado: Centraliza os itens horizontalmente */
+    align-items: center;
+    gap: 100px;
+    padding: 10px 0;
+    height: 70px;
 }
 
 .nav-main a {
     text-decoration: none;
     color: #000;
     font-size: 18px;
-    padding: 5px 0;
     position: relative;
-}
-
-.nav-main a:not(.active) {
+    display: inline-block;
     opacity: 0.6;
 }
 
-.nav-main a.active, .nav-main a:hover{
-    opacity: 1;
+.nav-main a::after {
+    content: attr(data-text);
     font-weight: bold;
+    visibility: hidden;
+    height: 0;
+    overflow: hidden;
+    display: block;
 }
 
+.nav-main a.active,
 .nav-main a:hover {
-    color: #000; /* garante a cor preta */
+    opacity: 1;
+    font-weight: bold;
 }
 
 #banner {
@@ -87,7 +85,8 @@ nav {
     color: #000;
 }
 
-.destaques-container .divider, .divisao{
+.destaques-container .divider,
+.divisao {
     height: 2px;
     background-color: #000;
     border-radius: 2px;
@@ -96,6 +95,11 @@ nav {
 .destaques-container .divider {
     width: 35%;
     align-self: center;
+}
+
+.divisao {
+    width: 98%;
+    margin: 50px auto 50px;
 }
 
 .product-carousel {
@@ -109,37 +113,83 @@ nav {
     display: flex;
     justify-content: center;
     gap: 123px;
-    padding: 0;
-    margin: 20px auto;
     list-style: none;
 }
 
-.divisao {
-    width: 98%;
-    margin: 0 auto 50px;
-}
-
 .product-card {
-    width: 293px;
-    height: 487px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+    width: 293px;
 }
 
-.product-card img {
-    width: 100%;
-    height: 80%;
-    object-fit: cover;
-    border-radius: 8px;
+.product-card a {
+    position: relative;
+    display: block;
+    width: auto;
+    height: 475px;
 }
 
 .product-card p {
     font-size: 18px;
-    color: black;
-    margin-top: 10px;
+    color: #000;
+    text-align: center;
+}
+
+.product-card p:last-of-type{
+    margin-top: 0;
+}
+
+.product-card .img-default,
+.product-card .img-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+}
+
+.product-card .img-default,
+.product-card .img-hover,
+.product-card a img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.product-card .img-default,
+.product-card .img-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 0.3s ease;
+}
+
+.product-card .img-default {
+    opacity: 1;
+    z-index: 1;
+}
+
+.product-card .img-hover {
+    opacity: 0;
+    z-index: 2;
+}
+
+.product-card a:hover .img-default {
+    opacity: 0;
+}
+
+.product-card a:hover .img-hover {
+    opacity: 1;
+}
+
+.product-card a img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
 }
 
 .footer {
@@ -151,9 +201,8 @@ nav {
 }
 
 .footer-container {
-    max-width: 1200px;
+    max-width: 1440px;
     margin: 0 auto;
-    padding: 0 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -162,17 +211,16 @@ nav {
 .footer-top {
     width: 100%;
     display: flex;
-    justify-content: flex-end;
-    padding-bottom: 20px;
+    justify-content: center;
     margin-bottom: 20px;
 }
 
 .footer-nav ul {
     list-style: none;
-    margin: 0;
-    padding: 0;
     display: flex;
     gap: 70px;
+    padding: 0;
+    margin: 0;
 }
 
 .footer-nav a {
@@ -190,48 +238,38 @@ nav {
     width: 100%;
     display: flex;
     align-items: center;
-    /* Alinha os itens verticalmente ao centro */
-    padding-bottom: 20px;
     justify-content: space-between;
-    /* Mantenha space-between aqui */
-}
-
-.footer-info p {
-    margin: 5px 0;
-    /* Mantenha esta linha para o margin-top */
-    font-size: 0.95em;
-    text-align: center;
-    margin-bottom: 10px;
-    /* Adicione esta linha para o espaçamento */
-}
-
-/* Para evitar que o último parágrafo tenha margem extra, o que não é visível mas é boa prática */
-.footer-info p:last-child {
-    margin-bottom: 0;
+    flex-wrap: wrap;
+    padding: 0 40px;
+    min-height: 150px;
+    position: relative;
 }
 
 .footer-logo {
     display: flex;
     align-items: center;
-    gap: 5px;
+    justify-content: center;
+    z-index: 1;
 }
 
 .footer-logo img {
-    height: 80px;
+    height: 150px;
     width: auto;
-    max-width: 150px;
+    filter: brightness(0) invert(1);
 }
 
 .footer-social {
     display: flex;
+    align-items: center;
+    justify-content: center;
     gap: 15px;
-    /* Aumente o espaçamento entre os ícones. Era 15px. */
+    height: 100%;
+    z-index: 1;
 }
 
 .footer-social a {
     color: #fff;
     font-size: 2.2em;
-    /* Aumente o tamanho dos ícones. Era 1.5em. */
     text-decoration: none;
     transition: color 0.3s ease;
 }
@@ -240,9 +278,28 @@ nav {
     color: #f0f0f0;
 }
 
+.footer-info {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+}
+
+.footer-info p {
+    margin: 5px 0 10px;
+    font-size: 0.95em;
+}
+
+.footer-info p:last-child {
+    margin-bottom: 0;
+}
+
 .footer-copyright {
     width: 100%;
     text-align: center;
-    padding-top: 20px;
     font-size: 0.9em;
 }
