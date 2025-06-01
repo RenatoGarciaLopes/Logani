@@ -162,7 +162,7 @@ nav.nav-main {
     justify-content: center;
     gap: 123px;
     list-style: none;
-    flex-wrap: wrap; /* Permite que os cards quebrem a linha */
+    flex-wrap: wrap; 
 }
 
 .product-card {

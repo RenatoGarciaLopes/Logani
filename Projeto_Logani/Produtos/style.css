@@ -1,3 +1,4 @@
+/* --- ESTILOS GERAIS E FONTES --- */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -28,7 +29,7 @@
 html,
 body {
     height: 100%;
-    font-family: 'WorkSans-regular';
+    font-family: 'WorkSans-regular', sans-serif;
     display: flex;
     flex-direction: column;
 }
@@ -37,6 +38,8 @@ main {
     flex: 1;
 }
 
+
+/* --- CABEÇALHO --- */
 header {
     display: flex;
     flex-direction: column;
@@ -52,7 +55,6 @@ header {
     justify-content: center;
     align-items: center;
     background-color: white;
-    border-radius: 0;
 }
 
 .logo {
@@ -61,6 +63,7 @@ header {
     object-fit: contain;
 }
 
+/* Navegação Principal (Desktop) */
 nav.nav-main {
     display: flex;
     justify-content: center;
@@ -76,6 +79,7 @@ nav.nav-main {
     font-size: 18px;
     position: relative;
     display: inline-block;
+    opacity: 0.6;
 }
 
 .nav-main a::after {
@@ -87,21 +91,40 @@ nav.nav-main {
     display: block;
 }
 
-.nav-main a:not(.active),
-.barra-pesquisa button:hover {
-    opacity: 0.6;
-}
-
 .nav-main a.active,
 .nav-main a:hover {
     opacity: 1;
     font-weight: bold;
 }
 
-.nav-main a:hover {
-    color: #000;
+/* Botão do Menu Hambúrguer (Escondido por padrão) */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: calc(9vh - 15px);
+    right: 20px;
+    z-index: 1002;
 }
 
+.menu-toggle .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Animação do ícone para "X" */
+.menu-toggle.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.menu-toggle.active .bar:nth-child(2) { opacity: 0; }
+.menu-toggle.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+
+/* --- CONTEÚDO PRINCIPAL (PRODUTOS) --- */
 section {
     padding: 40px 20px;
     max-width: 1200px;
@@ -109,13 +132,14 @@ section {
     margin: 0 auto;
 }
 
-section>div:first-child {
+section > div:first-child {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 40px;
     padding: 0 20px;
     flex-wrap: wrap;
+    gap: 20px; /* Adicionado para espaçamento quando quebrar linha */
 }
 
 section h1 {
@@ -179,55 +203,9 @@ input[type="search"]::-webkit-search-results-decoration {
     justify-content: center;
 }
 
-/* .filtro-container {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin: 15px 0;
-}
-
-.filtro-container label {
-    font-family: 'WorkSans-regular';
-    font-size: 20px;
-}
-
-.filtro-container select {
-    padding: 8px 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 20px;
-    font-family: 'WorkSans-light';
-    min-width: 300px;
-    height: 50px;
-    cursor: pointer;
-    appearance: none;
-    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%23000' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 10px center;
-    background-size: 10px;
-} */
-
+/* Carrossel de Produtos */
 .product-carousel {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-}
-
-.carousel-track {
-    display: flex;
-    justify-content: center;
-    gap: 150px;
-    padding: 0;
-    margin: 20px auto;
-    list-style: none;
-}
-
-.product-carousel {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
+    padding: 0 20px;
 }
 
 .carousel-track {
@@ -241,23 +219,15 @@ input[type="search"]::-webkit-search-results-decoration {
     display: flex;
     flex-direction: column;
     width: 293px;
+    margin-bottom: 40px;
 }
 
 .product-card a {
     position: relative;
     display: block;
-    width: auto;
-    height: 475px;
-}
-
-.product-card p {
-    font-size: 18px;
-    color: #000;
-    text-align: center;
-}
-
-.product-card p:last-of-type {
-    margin-top: 0;
+    width: 100%;
+    padding-top: 162%; /* Proporção da imagem (height/width * 100) */
+    height: 0;
 }
 
 .product-card .img-default,
@@ -267,65 +237,38 @@ input[type="search"]::-webkit-search-results-decoration {
     left: 0;
     width: 100%;
     height: 100%;
-    border-radius: 5px;
+    border-radius: 8px;
     object-fit: cover;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
-.product-card .img-default,
-.product-card .img-hover,
-.product-card a img {
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
-    object-fit: cover;
+.product-card a:hover .img-hover { opacity: 1; transform: scale(1.05); }
+.product-card a:hover .img-default { opacity: 0; }
+.product-card .img-default { opacity: 1; z-index: 1; }
+.product-card .img-hover { opacity: 0; z-index: 2; }
+
+.product-card p {
+    font-size: 18px;
+    color: #000;
+    text-align: center;
+    margin-top: 15px;
 }
 
-.product-card .img-default,
-.product-card .img-hover {
-    position: absolute;
-    top: 0;
-    left: 0;
-    transition: opacity 0.3s ease;
-}
-
-.product-card .img-default {
-    opacity: 1;
-    z-index: 1;
-}
-
-.product-card .img-hover {
-    opacity: 0;
-    z-index: 2;
-}
-
-.product-card a:hover .img-default {
-    opacity: 0;
-}
-
-.product-card a:hover .img-hover {
-    opacity: 1;
-}
-
-.product-card a img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-    transition: all 0.3s ease;
-}
+.product-card p:last-of-type { margin-top: 5px; }
 
 .divisao {
     height: 2px;
     background-color: #000;
     border-radius: 2px;
-    width: 98%;
-    margin: 0 auto 50px;
+    width: calc(100% - 40px);
+    margin: 50px auto;
 }
 
+/* --- RODAPÉ --- */
 .footer {
     background-color: #B8B7B7;
     color: #fff;
-    padding: 20px 0;
-    position: relative;
+    padding: 40px 20px 20px;
     margin-top: auto;
 }
 
@@ -335,21 +278,16 @@ input[type="search"]::-webkit-search-results-decoration {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 30px;
 }
 
-.footer-top {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-
-.footer-nav ul {
+.footer-top .footer-nav ul {
     list-style: none;
-    margin: 0;
-    padding: 0;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 70px;
+    padding: 0;
 }
 
 .footer-nav a {
@@ -359,77 +297,189 @@ input[type="search"]::-webkit-search-results-decoration {
     transition: color 0.3s ease;
 }
 
-.footer-nav a:hover {
-    color: #f0f0f0;
-}
+.footer-nav a:hover { color: #ddd; }
 
 .footer-bottom {
     width: 100%;
-    position: relative;
-    min-height: 150px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    padding: 0 40px;
+    gap: 20px;
 }
 
-.footer-logo {
+.footer-logo, .footer-info, .footer-social {
+    flex: 1;
     display: flex;
-    align-items: center;
     justify-content: center;
-    z-index: 1;
+    align-items: center;
+}
+
+.footer-info {
+    flex-direction: column;
+    text-align: center;
+    line-height: 1.5;
 }
 
 .footer-logo img {
     height: 150px;
-    width: auto;
     filter: brightness(0) invert(1);
 }
 
 .footer-social {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-    height: 100%;
-    z-index: 1;
+    gap: 20px;
+    font-size: 1.5em;
 }
 
 .footer-social a {
     color: #fff;
-    font-size: 2.2em;
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
-.footer-social a:hover {
-    color: #f0f0f0;
-}
-
-.footer-info {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    height: 100%;
-    padding-top: 40px;
-}
-
-.footer-info p {
-    margin: 5px 0;
-    font-size: 0.95em;
-}
-
-.footer-info p:last-child {
-    margin-bottom: 0;
-}
+.footer-social a:hover { color: #ddd; }
 
 .footer-copyright {
     width: 100%;
     text-align: center;
     font-size: 0.9em;
+    padding-top: 20px;
+}
+
+/* Overlay para o fundo quando o menu estiver aberto */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 999; 
+    opacity: 0; 
+    visibility: hidden; 
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.overlay.active {
+    opacity: 1; 
+    visibility: visible; 
+}
+
+
+/* --- INÍCIO DAS REGRAS DE RESPONSIVIDADE --- */
+
+/* Telas de Tablet (até 1024px) */
+@media (max-width: 1024px) {
+    nav.nav-main { gap: 40px; }
+    .carousel-track { gap: 60px; flex-wrap: wrap; }
+    .footer-info { order: -1; margin-bottom: 20px; }
+    .footer-bottom { justify-content: center; text-align: center; }
+}
+
+/* Telas de Celular (até 768px) */
+@media (max-width: 768px) {
+    .topo {
+        height: 15vh; /* Altura menor para o topo no mobile */
+        justify-content: center; 
+        padding: 0 50px; 
+    }
+    
+    .logo {
+        width: 200px; /* Logo menor para caber melhor */
+        height: auto;
+    }
+
+    /* Exibe o botão do menu hambúrguer */
+    .menu-toggle {
+        display: block;
+        left: 20px; 
+        right: auto; 
+        top: calc(7.5vh - 15px); /* Centraliza na nova altura do topo */
+    }
+    
+    /* Quando o menu está ativo, fixa o botão para ele rolar com o menu */
+    .menu-toggle.active {
+        position: fixed; 
+        top: 20px;      
+        left: 20px;     
+    }
+
+    /* Esconde a navegação e a prepara para deslizar */
+    nav.nav-main {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start; 
+        align-items: flex-start; 
+        position: fixed; 
+        top: 0;
+        left: 0;
+        height: 100vh; 
+        width: 280px;  
+        padding-top: 80px; 
+        background-color: #ffffff;
+        box-shadow: 4px 0px 15px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+        gap: 10px;
+        transform: translateX(-100%); 
+        transition: transform 0.4s ease-in-out;
+    }
+
+    /* Mostra a navegação quando a classe 'active' é adicionada */
+    nav.nav-main.active {
+        transform: translateX(0); 
+    }
+
+    /* Estiliza os links dentro do menu lateral */
+    .nav-main a {
+        width: 100%;
+        text-align: left;
+        padding: 15px 30px; 
+        font-size: 20px;
+        opacity: 0.8;
+    }
+    
+    .nav-main a:hover {
+        background-color: #f0f0f0;
+    }
+
+    /* Ajustes específicos da página de produtos */
+    section {
+        padding: 20px 10px;
+    }
+
+    /* Empilha o H1 e a barra de pesquisa */
+    section > div:first-child {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        margin-bottom: 30px;
+    }
+
+    section h1 {
+        font-size: 28px; /* Reduz o tamanho da fonte */
+        text-align: center;
+    }
+    
+    .barra-pesquisa {
+        max-width: 100%;
+    }
+    
+    .carousel-track {
+        gap: 20px; /* Diminui o espaço entre os produtos */
+    }
+    
+    /* Ajustes no Rodapé */
+    .footer-bottom {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .footer-nav ul {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .footer-social {
+        font-size: 1.8em;
+    }
 }
