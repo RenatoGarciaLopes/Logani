@@ -18,10 +18,23 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'WorkSans-light';
+    src: url('../Fonte/WorkSans-Light.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html,
 body {
+    height: 100%;
     font-family: 'WorkSans-regular';
     display: flex;
     flex-direction: column;
+}
+
+main {
+    flex: 1;
 }
 
 header {
@@ -74,7 +87,8 @@ nav.nav-main {
     display: block;
 }
 
-.nav-main a:not(.active) {
+.nav-main a:not(.active),
+.barra-pesquisa button:hover {
     opacity: 0.6;
 }
 
@@ -91,6 +105,7 @@ nav.nav-main {
 section {
     padding: 40px 20px;
     max-width: 1200px;
+    height: auto;
     margin: 0 auto;
 }
 
@@ -111,6 +126,87 @@ section h1 {
     font-family: 'WorkSans-medium';
 }
 
+.barra-pesquisa {
+    position: relative;
+    display: flex;
+    align-items: center;
+    max-width: 500px;
+    width: 100%;
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+    display: none;
+}
+
+.barra-pesquisa input[type="search"] {
+    flex: 1;
+    padding: 8px 12px;
+    font-size: 16px;
+    border: 2px solid #6A6060;
+    border-right: none;
+    border-radius: 4px 0 0 4px;
+    outline: none;
+    height: 40px;
+    box-sizing: border-box;
+}
+
+#botaoLimpar {
+    position: absolute;
+    right: 60px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: #999;
+    display: none;
+}
+
+#botaoBusca {
+    height: 40px;
+    padding: 0 16px;
+    font-size: 16px;
+    background-color: #6A6060;
+    color: white;
+    border: 2px solid #6A6060;
+    border-left: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* .filtro-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.filtro-container label {
+    font-family: 'WorkSans-regular';
+    font-size: 20px;
+}
+
+.filtro-container select {
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 20px;
+    font-family: 'WorkSans-light';
+    min-width: 300px;
+    height: 50px;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%23000' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 10px;
+} */
+
 .product-carousel {
     display: flex;
     align-items: center;
@@ -121,7 +217,7 @@ section h1 {
 .carousel-track {
     display: flex;
     justify-content: center;
-    gap: 123px;
+    gap: 150px;
     padding: 0;
     margin: 20px auto;
     list-style: none;
