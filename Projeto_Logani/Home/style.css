@@ -35,22 +35,21 @@ header {
     flex-direction: column;
     align-items: center;
     background-color: #fff;
-    position: relative; 
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-
 }
 
 .topo {
     width: 100%;
-    height: 18vh;
+    height: 20vh;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #fff;
 }
 
 .logo {
-    width: 280px;
-    height: auto;
+    width: 300px;
+    height: 280px;
     object-fit: contain;
 }
 
@@ -68,8 +67,8 @@ nav.nav-main {
     color: #000;
     font-size: 18px;
     position: relative;
+    display: inline-block;
     opacity: 0.6;
-    transition: opacity 0.3s ease;
 }
 
 .nav-main a::after {
@@ -81,20 +80,21 @@ nav.nav-main {
     display: block;
 }
 
+
 .nav-main a.active,
 .nav-main a:hover {
     opacity: 1;
     font-weight: bold;
 }
 
-/* --- ESTILOS DO MENU HAMBÚRGUER (INICIALMENTE ESCONDIDO) --- */
+
 .menu-toggle {
     display: none;
     background: none;
     border: none;
     cursor: pointer;
     position: absolute;
-    top: calc(9vh - 15px); /* Centraliza na metade da altura do topo */
+    top: calc(9vh - 15px); 
     right: 20px;
     z-index: 1002;
 }
@@ -108,13 +108,13 @@ nav.nav-main {
     transition: all 0.3s ease-in-out;
 }
 
-/* Animação para o X */
+
 .menu-toggle.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
 .menu-toggle.active .bar:nth-child(2) { opacity: 0; }
 .menu-toggle.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
 
-/* --- CONTEÚDO PRINCIPAL --- */
+
 #banner {
     background-image: url('../Banerr.png'); 
     height: 650px;
@@ -298,58 +298,58 @@ nav.nav-main {
 }
 @media (max-width: 768px) {
 
-    /* --- 1. AJUSTES NO HEADER E BOTÃO HAMBÚRGUER --- */
+   
 
     .topo {
-        justify-content: center; /* Centraliza a logo */
-        padding: 0 50px; /* Garante que a logo não cole no botão */
+        justify-content: center; 
+        padding: 0 50px; 
     }
 
     .menu-toggle {
         display: block;
-        left: 20px; /* <<<<<<< Posiciona o botão na ESQUERDA */
-        right: auto; /* Remove o posicionamento da direita */
-        z-index: 1001; /* <<<<<<< Z-INDEX MAIS ALTO DE TODOS */
+        left: 20px; 
+        right: auto; 
+        z-index: 1001; 
         top: 20px
     }
 
-    /* --- 2. ESTILO DA ABA DE NAVEGAÇÃO LATERAL (NAV-MAIN) --- */
+
 
     nav.nav-main {
-        /* Layout e Posição */
+        
         display: flex;
         flex-direction: column;
-        justify-content: flex-start; /* Alinha os links no topo */
-        align-items: flex-start; /* Alinha os links à esquerda */
+        justify-content: flex-start; 
+        align-items: flex-start; 
         z-index: 1000;
         
-        position: fixed; /* Fica fixo na tela durante o scroll */
+        position: fixed; 
         top: 0;
         left: 0;
-        height: 100vh; /* Ocupa 100% da altura da tela */
-        width: 280px;  /* Largura da aba lateral */
-        padding-top: 80px; /* Espaço para não ficar atrás do header do celular */
+        height: 100vh; 
+        width: 280px;  
+        padding-top: 80px; 
 
         background-color: #ffffff;
         box-shadow: 4px 0px 15px rgba(0, 0, 0, 0.2);
         z-index: 1000;
         gap: 10px;
 
-        /* Animação de Entrada e Saída */
-        transform: translateX(-100%); /* <<<<<<< Começa ESCONDIDO fora da tela à esquerda */
+        
+        transform: translateX(-100%); 
         transition: transform 0.4s ease-in-out;
     }
 
-    /* Estado ATIVO: Mostra a aba lateral */
+    
     nav.nav-main.active {
-        transform: translateX(0); /* <<<<<<< Desliza para a posição 0 (visível) */
+        transform: translateX(0); 
     }
 
-    /* Links dentro da aba lateral */
+    
     .nav-main a {
         width: 100%;
         text-align: left;
-        padding: 15px 30px; /* Mais espaçamento interno */
+        padding: 15px 30px; 
         font-size: 20px;
         opacity: 0.8;
     }
@@ -358,7 +358,7 @@ nav.nav-main {
         background-color: #f0f0f0;
     }
 
-    /* --- 3. ESTILO DO OVERLAY --- */
+    
 
     .overlay {
         position: fixed;
@@ -366,17 +366,17 @@ nav.nav-main {
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(0, 0, 0, 0.5); /* Fundo preto semitransparente */
-        z-index: 999; /* Fica abaixo do menu, mas acima do resto */
+        background-color: rgba(0, 0, 0, 0.5); 
+        z-index: 999; 
 
-        opacity: 0; /* Começa totalmente transparente */
-        visibility: hidden; /* Começa invisível e, mais importante, NÃO PODE SER CLICADO */
+        opacity: 0; 
+        visibility: hidden; 
         transition: opacity 0.4s ease, visibility 0.4s ease;
     }
 
-    /* Estado ATIVO: Mostra o overlay */
+   
     .overlay.active {
-        opacity: 1; /* Fica totalmente opaco (visível) */
+        opacity: 1; 
         visibility: visible; 
     }
 
@@ -387,10 +387,9 @@ nav.nav-main {
     }
 
     #banner {
-        background-image: url('../Banerr_mobile.png'); /* << COLOQUE O CAMINHO DO SEU NOVO BANNER MOBILE AQUI */
-
+        background-image: url('../Banerr_mobile.png');
         margin-top: 20px;
-        height: 250px; /* Ajuste essa altura como preferir */
+        height: 250px; 
     }
 }
 
