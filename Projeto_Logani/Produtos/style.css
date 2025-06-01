@@ -4,8 +4,22 @@
     padding: 0;
 }
 
+@font-face {
+    font-family: 'WorkSans-regular';
+    src: url('../Fonte/WorkSans-Regular.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'WorkSans-medium';
+    src: url('../Fonte/WorkSans-Medium.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'WorkSans-regular';
     display: flex;
     flex-direction: column;
 }
@@ -30,9 +44,7 @@ header {
 
 .logo {
     width: 300px;
-    /* Considere ajustar, pode ser grande demais */
     height: 280px;
-    /* Considere ajustar, pode ser grande demais */
     object-fit: contain;
 }
 
@@ -96,6 +108,7 @@ section h1 {
     font-weight: 700;
     margin: 0;
     color: #6A6060;
+    font-family: 'WorkSans-medium';
 }
 
 .product-carousel {

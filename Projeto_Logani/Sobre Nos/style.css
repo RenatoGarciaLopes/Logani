@@ -124,10 +124,10 @@ section img {
 }
 
 section p {
-    margin-top: 30px;
+    margin-top: 50px;
     font-size: 28px;
     color: black;
-    line-height: 2;
+    line-height: 1.8;
     text-align: justify;
 }
 
