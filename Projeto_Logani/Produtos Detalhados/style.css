@@ -18,6 +18,21 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'WorkSans-medium';
+    src: url('../Fonte/WorkSans-Medium.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'WorkSans-semibold';
+    src: url('../Fonte/WorkSans-SemiBold.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
 body {
     font-family: 'WorkSans-regular', sans-serif;
     display: flex;
@@ -80,39 +95,144 @@ nav.nav-main {
     font-weight: bold;
 }
 
-#banner {
-    height: 650px;
-    width: 100%;
-    object-fit: cover;
+.container {
+    margin: 0 auto;
+    padding: 40px 20px;
 }
 
-.destaques-container {
+.product {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-right: 40px;
+    justify-content: center;
+    align-items: center;
+}
+
+.gallery {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 50px;
+    align-items: center;
+}
+
+.thumbnails {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px;
+    width: 100px;
+}
+
+.thumbnails img {
+    width: 110px;
+    height: 110px;
+    border-radius: 10px;
+    cursor: pointer;
+    opacity: 1;
+    transition: opacity 0.3s, border 0.3s;
+    border: 2px solid transparent;
+}
+
+.thumbnails img:hover,
+.thumbnails img.selected {
+    opacity: 0.5;
+}
+
+.main-image {
+    width: 450px;
+    height: 520px;
+    border-radius: 10px;
+    display: block;
+}
+
+.info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-left: 80px;
+}
+
+h1 {
+    font-family: 'WorkSans-medium';
+    font-size: 48px;
+    color: #6A6060;
+}
+
+.price {
+    font-size: 30px;
+    color: #6A6060;
+    margin-bottom: 10px;
+    font-family: 'WorkSans-regular';
+}
+
+.buy-button {
+    background: #2C2727;
+    color: #fff;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    font-size: 32px;
+    cursor: pointer;
+    transition: background 0.3s;
+    width: 300px;
+    height: 60px;
+    font-family: 'WorkSans-semibold';
+}
+
+.buy-button:hover {
+    opacity: 0.8;
+}
+
+.title-with-dividers {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 15px;
     margin: 40px 0;
-    font-family: 'WorkSans-light', sans-serif;
-    font-weight: 700;
-    font-size: 70px;
+    font-family: 'WorkSans-light';
+    font-size: 40px;
     color: #000;
 }
 
-.destaques-container .divider,
-.divisao {
+.title-with-dividers .divider {
     height: 2px;
     background-color: #000;
     border-radius: 2px;
+    flex-grow: 1;
+    max-width: 30%;
+    min-width: 50px;
 }
 
-.destaques-container .divider {
-    width: 40%;
-    align-self: center;
+.title-with-dividers span {
+    white-space: nowrap;
 }
 
-.divisao {
-    width: 98%;
-    margin: 50px auto 50px;
+.description {
+    display: flex;
+    flex-direction: column;
+}
+
+.text {
+    font-size: 20px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    font-family: 'WorkSans-regular';
+}
+
+.accordion details {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+.accordion summary {
+    cursor: pointer;
+    font-family: 'WorkSans-medium';
+    font-size: 20px;
 }
 
 .product-carousel {
@@ -125,7 +245,7 @@ nav.nav-main {
 .carousel-track {
     display: flex;
     justify-content: center;
-    gap: 123px;
+    gap: 250px;
     list-style: none;
 }
 
@@ -150,6 +270,7 @@ nav.nav-main {
 
 .product-card p:last-of-type {
     margin-top: 0;
+    margin-bottom: 60px;
 }
 
 .product-card .img-default,
@@ -203,6 +324,34 @@ nav.nav-main {
     transform: scale(1.05);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
     transition: all 0.3s ease;
+}
+
+.related-product {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin: 40px 0;
+    font-family: 'WorkSans-light';
+    font-size: 60px;
+    color: #000;
+}
+
+.related-product .divider,
+.divisao {
+    height: 2px;
+    background-color: #000;
+    border-radius: 2px;
+}
+
+.related-product .divider {
+    width: 610px;
+    align-self: center;
+}
+
+.divisao {
+    width: 98%;
+    margin: 0 auto 100px;
 }
 
 .footer {
