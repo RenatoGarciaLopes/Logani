@@ -1,3 +1,4 @@
+/* --- ESTILOS GERAIS E FONTES --- */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -22,6 +23,11 @@ body {
     font-family: 'WorkSans-regular', sans-serif;
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1; 
 }
 
 header {
@@ -29,21 +35,22 @@ header {
     flex-direction: column;
     align-items: center;
     background-color: #fff;
+    position: relative; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
 }
 
 .topo {
     width: 100%;
-    height: 20vh;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+    height: 18vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #fff;
 }
 
 .logo {
-    width: 300px;
-    height: 280px;
+    width: 280px;
+    height: auto;
     object-fit: contain;
 }
 
@@ -61,8 +68,8 @@ nav.nav-main {
     color: #000;
     font-size: 18px;
     position: relative;
-    display: inline-block;
     opacity: 0.6;
+    transition: opacity 0.3s ease;
 }
 
 .nav-main a::after {
@@ -80,46 +87,72 @@ nav.nav-main {
     font-weight: bold;
 }
 
+/* --- ESTILOS DO MENU HAMBÚRGUER (INICIALMENTE ESCONDIDO) --- */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: calc(9vh - 15px); /* Centraliza na metade da altura do topo */
+    right: 20px;
+    z-index: 1002;
+}
+
+.menu-toggle .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Animação para o X */
+.menu-toggle.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.menu-toggle.active .bar:nth-child(2) { opacity: 0; }
+.menu-toggle.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+
+/* --- CONTEÚDO PRINCIPAL --- */
 #banner {
+    background-image: url('../Banerr.png'); 
     height: 650px;
     width: 100%;
-    object-fit: cover;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
 }
 
 .destaques-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 15px;
-    margin: 40px 0;
+    gap: 25px;
+    margin: 40px 20px; /* Adiciona margem lateral */
     font-family: 'WorkSans-light', sans-serif;
     font-weight: 700;
     font-size: 70px;
     color: #000;
 }
 
-.destaques-container .divider,
-.divisao {
+.destaques-container .divider {
     height: 2px;
     background-color: #000;
     border-radius: 2px;
-}
-
-.destaques-container .divider {
     width: 40%;
-    align-self: center;
 }
 
 .divisao {
-    width: 98%;
-    margin: 50px auto 50px;
+    width: calc(100% - 40px);
+    height: 2px;
+    background-color: #000;
+    border-radius: 2px;
+    margin: 50px auto;
 }
 
 .product-carousel {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
+    padding: 0 20px;
 }
 
 .carousel-track {
@@ -127,29 +160,22 @@ nav.nav-main {
     justify-content: center;
     gap: 123px;
     list-style: none;
+    flex-wrap: wrap; /* Permite que os cards quebrem a linha */
 }
 
 .product-card {
     display: flex;
     flex-direction: column;
     width: 293px;
+    margin-bottom: 40px; /* Espaçamento inferior */
 }
 
 .product-card a {
     position: relative;
     display: block;
-    width: auto;
-    height: 475px;
-}
-
-.product-card p {
-    font-size: 18px;
-    color: #000;
-    text-align: center;
-}
-
-.product-card p:last-of-type {
-    margin-top: 0;
+    width: 100%;
+    padding-top: 162%; /* Proporção da imagem (height/width * 100) */
+    height: 0;
 }
 
 .product-card .img-default,
@@ -161,55 +187,30 @@ nav.nav-main {
     height: 100%;
     border-radius: 8px;
     object-fit: cover;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
-.product-card .img-default,
-.product-card .img-hover,
-.product-card a img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    object-fit: cover;
+.product-card a:hover .img-hover { opacity: 1; transform: scale(1.05); }
+.product-card a:hover .img-default { opacity: 0; }
+
+.product-card .img-default { opacity: 1; z-index: 1; }
+.product-card .img-hover { opacity: 0; z-index: 2; }
+
+.product-card p {
+    font-size: 18px;
+    color: #000;
+    text-align: center;
+    margin-top: 15px;
 }
 
-.product-card .img-default,
-.product-card .img-hover {
-    position: absolute;
-    top: 0;
-    left: 0;
-    transition: opacity 0.3s ease;
-}
+.product-card p:last-of-type { margin-top: 5px; }
 
-.product-card .img-default {
-    opacity: 1;
-    z-index: 1;
-}
 
-.product-card .img-hover {
-    opacity: 0;
-    z-index: 2;
-}
-
-.product-card a:hover .img-default {
-    opacity: 0;
-}
-
-.product-card a:hover .img-hover {
-    opacity: 1;
-}
-
-.product-card a img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-    transition: all 0.3s ease;
-}
-
+/* --- FOOTER --- */
 .footer {
     background-color: #B8B7B7;
     color: #fff;
-    padding: 20px 0;
-    position: relative;
+    padding: 40px 20px 20px;
     margin-top: auto;
 }
 
@@ -219,21 +220,16 @@ nav.nav-main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 30px;
 }
 
-.footer-top {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-
-.footer-nav ul {
+.footer-top .footer-nav ul {
     list-style: none;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 70px;
     padding: 0;
-    margin: 0;
 }
 
 .footer-nav a {
@@ -243,9 +239,7 @@ nav.nav-main {
     transition: color 0.3s ease;
 }
 
-.footer-nav a:hover {
-    color: #f0f0f0;
-}
+.footer-nav a:hover { color: #ddd; }
 
 .footer-bottom {
     width: 100%;
@@ -253,67 +247,150 @@ nav.nav-main {
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    padding: 0 40px;
-    min-height: 150px;
-    position: relative;
+    gap: 20px;
 }
 
-.footer-logo {
+.footer-logo, .footer-info, .footer-social {
+    flex: 1;
     display: flex;
-    align-items: center;
     justify-content: center;
-    z-index: 1;
+    align-items: center;
+}
+
+.footer-info {
+    flex-direction: column;
+    text-align: center;
+    line-height: 1.5;
 }
 
 .footer-logo img {
     height: 150px;
-    width: auto;
     filter: brightness(0) invert(1);
 }
 
 .footer-social {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-    height: 100%;
-    z-index: 1;
+    gap: 20px;
+    font-size: 1.5em; /* Aumenta o tamanho do ícone pelo container */
 }
 
 .footer-social a {
     color: #fff;
-    font-size: 2.2em;
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
-.footer-social a:hover {
-    color: #f0f0f0;
-}
-
-.footer-info {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    height: 100%;
-    padding-top: 40px;
-}
-
-.footer-info p {
-    margin: 5px 0;
-    font-size: 0.95em;
-}
-
-.footer-info p:last-child {
-    margin-bottom: 0;
-}
+.footer-social a:hover { color: #ddd; }
 
 .footer-copyright {
     width: 100%;
     text-align: center;
     font-size: 0.9em;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
+
+
+@media (max-width: 1024px) {
+    nav.nav-main { gap: 40px; }
+    .carousel-track { gap: 60px; }
+    .destaques-container { font-size: 50px; }
+    .footer-bottom { justify-content: center; text-align: center; }
+}
+@media (max-width: 768px) {
+
+    /* --- 1. AJUSTES NO HEADER E BOTÃO HAMBÚRGUER --- */
+
+    .topo {
+        justify-content: center; /* Centraliza a logo */
+        padding: 0 50px; /* Garante que a logo não cole no botão */
+    }
+
+    .menu-toggle {
+        display: block;
+        left: 20px; /* <<<<<<< Posiciona o botão na ESQUERDA */
+        right: auto; /* Remove o posicionamento da direita */
+        z-index: 1001; /* <<<<<<< Z-INDEX MAIS ALTO DE TODOS */
+        top: 20px
+    }
+
+    /* --- 2. ESTILO DA ABA DE NAVEGAÇÃO LATERAL (NAV-MAIN) --- */
+
+    nav.nav-main {
+        /* Layout e Posição */
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start; /* Alinha os links no topo */
+        align-items: flex-start; /* Alinha os links à esquerda */
+        z-index: 1000;
+        
+        position: fixed; /* Fica fixo na tela durante o scroll */
+        top: 0;
+        left: 0;
+        height: 100vh; /* Ocupa 100% da altura da tela */
+        width: 280px;  /* Largura da aba lateral */
+        padding-top: 80px; /* Espaço para não ficar atrás do header do celular */
+
+        background-color: #ffffff;
+        box-shadow: 4px 0px 15px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+        gap: 10px;
+
+        /* Animação de Entrada e Saída */
+        transform: translateX(-100%); /* <<<<<<< Começa ESCONDIDO fora da tela à esquerda */
+        transition: transform 0.4s ease-in-out;
+    }
+
+    /* Estado ATIVO: Mostra a aba lateral */
+    nav.nav-main.active {
+        transform: translateX(0); /* <<<<<<< Desliza para a posição 0 (visível) */
+    }
+
+    /* Links dentro da aba lateral */
+    .nav-main a {
+        width: 100%;
+        text-align: left;
+        padding: 15px 30px; /* Mais espaçamento interno */
+        font-size: 20px;
+        opacity: 0.8;
+    }
+
+    .nav-main a:hover {
+        background-color: #f0f0f0;
+    }
+
+    /* --- 3. ESTILO DO OVERLAY --- */
+
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); /* Fundo preto semitransparente */
+        z-index: 999; /* Fica abaixo do menu, mas acima do resto */
+
+        opacity: 0; /* Começa totalmente transparente */
+        visibility: hidden; /* Começa invisível e, mais importante, NÃO PODE SER CLICADO */
+        transition: opacity 0.4s ease, visibility 0.4s ease;
+    }
+
+    /* Estado ATIVO: Mostra o overlay */
+    .overlay.active {
+        opacity: 1; /* Fica totalmente opaco (visível) */
+        visibility: visible; 
+    }
+
+    .menu-toggle.active {
+        position: fixed; 
+        top: 20px;      
+        left: 20px;     
+    }
+
+    #banner {
+        background-image: url('../Banerr_mobile.png'); /* << COLOQUE O CAMINHO DO SEU NOVO BANNER MOBILE AQUI */
+
+        margin-top: 20px;
+        height: 250px; /* Ajuste essa altura como preferir */
+    }
+}
+

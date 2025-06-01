@@ -7,10 +7,11 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <title>Logani</title>
+    <link rel="shortcut icon" href="../Favicom.png" type="image/x-icon">
 </head>
 
 <body>
-    <script src="..\script.js"></script>
+    
 
     <header>
         <div class="topo">
@@ -18,6 +19,13 @@
                 <img src="..\logani-logo.png" alt="Logo" class="logo" />
             </a>
         </div>
+
+        <button class="menu-toggle" id="mobile-menu" aria-label="Menu" aria-expanded="false">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+
         <nav class="nav-main">
             <a href="..\Home\index.html" class="nav-link active" data-text="Home">Home</a>
             <a href="..\Produtos\produtos.html" class="nav-link" data-text="Produtos">Produtos</a>
@@ -27,7 +35,7 @@
     </header>
 
     <section>
-        <img src="..\Banerr.png" alt="Banner" id="banner">
+        <div id="banner" role="img" aria-label="Banner principal da Logani"></div>
     </section>
 
     <section>
@@ -104,6 +112,9 @@
             </div>
         </div>
     </footer>
+
+    <div class="overlay" id="overlay"></div>
+    <script src="..\script.js"></script>
 </body>
 
 </html>
