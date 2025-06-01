@@ -136,7 +136,7 @@ nav.nav-main {
 
 .thumbnails img:hover,
 .thumbnails img.selected {
-    opacity: 0.5;
+    filter: brightness(0.5);
 }
 
 .main-image {
