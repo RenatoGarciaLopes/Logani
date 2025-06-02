@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    
+
     // --- FUNCIONALIDADE 1: GALERIA DE IMAGENS DA PÁGINA DE PRODUTO ---
     // Este código só vai funcionar na página que tiver os elementos .main-image e .thumbnails
     const mainImage = document.querySelector(".main-image");
@@ -32,19 +32,17 @@ document.addEventListener("DOMContentLoaded", function () {
     const productCards = document.querySelectorAll('.product-card');
     const mensagemBusca = document.getElementById('mensagemBusca');
 
-    searchButton.addEventListener('click', (e) => {
-        e.preventDefault(); // evita envio do form se tiver dentro de um form
-
+    function realizarBusca() {
         const filtro = searchInput.value.toLowerCase().trim();
         let encontrouAlgum = false;
 
         productCards.forEach(card => {
             const nomeProduto = card.querySelector('p').textContent.toLowerCase();
             if (nomeProduto.includes(filtro)) {
-                card.style.display = ''; // mostra o card
+                card.style.display = '';
                 encontrouAlgum = true;
             } else {
-                card.style.display = 'none'; // esconde o card
+                card.style.display = 'none';
             }
         });
 
@@ -52,6 +50,20 @@ document.addEventListener("DOMContentLoaded", function () {
             mensagemBusca.textContent = 'Nenhum resultado encontrado.';
         } else {
             mensagemBusca.textContent = '';
+        }
+    }
+
+    // Evento de clique no botão
+    searchButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        realizarBusca();
+    });
+
+    // Evento de pressionar Enter no campo de busca
+    searchInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            realizarBusca();
         }
     });
 });
