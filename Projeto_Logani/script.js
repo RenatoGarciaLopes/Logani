@@ -26,47 +26,36 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-    const searchInput = document.getElementById('busca');
-    const searchButton = document.getElementById('botaoBusca');
-    const productCards = document.querySelectorAll('.product-card');
-    const mensagemBusca = document.getElementById('mensagemBusca');
+document.getElementById("botaoBusca").addEventListener("click", function () {
+    const termo = document.getElementById("busca").value.toLowerCase();
+    const produtos = document.querySelectorAll(".product-card");
+    let encontrados = 0;
 
-    function realizarBusca() {
-        const filtro = searchInput.value.toLowerCase().trim();
-        let encontrouAlgum = false;
-
-        productCards.forEach(card => {
-            const nomeProduto = card.querySelector('p').textContent.toLowerCase();
-            if (nomeProduto.includes(filtro)) {
-                card.style.display = '';
-                encontrouAlgum = true;
-            } else {
-                card.style.display = 'none';
-            }
-        });
-
-        if (!encontrouAlgum && filtro !== '') {
-            mensagemBusca.textContent = 'Nenhum resultado encontrado.';
+    produtos.forEach(produto => {
+        const textoProduto = produto.innerText.toLowerCase();
+        if (textoProduto.includes(termo)) {
+            produto.style.display = "block";
+            encontrados++;
         } else {
-            mensagemBusca.textContent = '';
+            produto.style.display = "none";
         }
-    }
-
-    // Evento de clique no botão
-    searchButton.addEventListener('click', (e) => {
-        e.preventDefault();
-        realizarBusca();
     });
 
-    // Evento de pressionar Enter no campo de busca
-    searchInput.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') {
-            e.preventDefault();
-            realizarBusca();
-        }
+    const mensagemErro = document.getElementById("mensagemErro");
+    mensagemErro.style.display = encontrados === 0 ? "block" : "none";
+});
+
+// Também pode limpar a mensagem ao limpar o campo de busca
+document.getElementById("botaoLimpar").addEventListener("click", function () {
+    document.getElementById("busca").value = "";
+    document.getElementById("mensagemErro").style.display = "none";
+
+    const produtos = document.querySelectorAll(".product-card");
+    produtos.forEach(produto => {
+        produto.style.display = "block";
     });
 });
+
 
 document.addEventListener("DOMContentLoaded", function () {
     const campoBusca = document.getElementById('busca');
