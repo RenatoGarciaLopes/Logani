@@ -292,13 +292,14 @@ details[open] .content {
     position: relative;
     display: block;
     width: auto;
-    height: 475px;
+    height: 420px;
 }
 
 .product-card p {
     font-size: 18px;
     color: #000;
     text-align: center;
+    margin-top: 20px;
 }
 
 .product-card p:last-of-type {
@@ -322,7 +323,7 @@ details[open] .content {
 .product-card .img-hover,
 .product-card a img {
     width: 100%;
-    height: auto;
+    height: 420px;
     border-radius: 5px;
     object-fit: cover;
 }
