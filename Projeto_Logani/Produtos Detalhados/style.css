@@ -145,7 +145,7 @@ nav.nav-main {
 .main-image {
     width: 480px;
     height: 480px;
-    border-radius: 2px;
+    border-radius: 4px;
     display: block;
 }
 
@@ -209,7 +209,8 @@ h1 {
 }
 
 .title-with-dividers span {
-    white-space: nowrap;
+    white-space: wrap;
+    text-align: center;
 }
 
 .description {
@@ -374,6 +375,7 @@ details[open] .content {
     font-family: 'WorkSans-light';
     font-size: 60px;
     color: #000;
+    text-align: center;
 }
 
 .related-product .divider,
@@ -504,4 +506,272 @@ details[open] .content {
     width: 100%;
     text-align: center;
     font-size: 0.9em;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* Botão do Menu Hambúrguer (Escondido por padrão) */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: calc(9vh - 15px); 
+    right: 20px;
+    z-index: 1002;
+}
+
+.menu-toggle .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Animação do ícone para "X" */
+.menu-toggle.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.menu-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+
+
+
+@media (max-width: 1024px) {
+    .product {
+        margin-right: 0;
+        gap: 20px;
+    }
+
+    .gallery {
+        gap: 20px;
+    }
+
+    .main-image {
+        width: 400px;
+        height: 400px;
+    }
+
+    .thumbnails {
+        gap: 20px;
+    }
+
+    .thumbnails img {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .info {
+        margin-left: 0;
+        align-items: center;
+        text-align: center;
+    }
+
+    .text, .accordion details {
+        margin-left: 40px;
+        margin-right: 40px;
+    }
+
+    .related-product {
+        font-size: 40px;
+    }
+
+    
+    .carousel-track {
+        gap: 100px;
+        padding: 0 20px;
+    }
+}
+
+
+/* --- RESPONSIVIDADE PARA CELULARES (ATÉ 768PX) --- */
+@media (max-width: 768px) {
+    /* --- CABEÇALHO E MENU --- */
+
+    .topo {
+        height: 15vh;
+        justify-content: center;
+        padding: 0 50px;
+    }
+
+    nav.nav-main { display: none; } /* Esconde o menu desktop */
+    /* (As outras regras de menu que já adicionamos nos outros arquivos devem estar presentes) */
+
+    /* --- LAYOUT GERAL --- */
+    .container {
+        padding: 20px 15px;
+    }
+
+    .product {
+        flex-direction: column; /* Empilha galeria e infos */
+    }
+
+    /* --- GALERIA DE IMAGENS --- */
+    .gallery {
+        flex-direction: column; /* Empilha imagem principal e thumbnails */
+        gap: 15px;
+    }
+
+    .main-image {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1 / 1; /* Garante que a imagem seja um quadrado */
+    }
+
+    .thumbnails {
+        flex-direction: row; /* Coloca as miniaturas lado a lado */
+        gap: 10px;
+        width: auto;
+    }
+
+    .thumbnails img {
+        width: 60px;
+        height: 60px;
+    }
+
+    /* --- INFORMAÇÕES DO PRODUTO --- */
+    .info {
+        width: 100%;
+        align-items: baseline;
+    }
+    h1 {
+        font-size: 28px;
+    }
+    .price {
+        font-size: 24px;
+    }
+    .buy-button {
+        width: 100%; /* Botão ocupa a largura toda */
+        font-size: 22px;
+        padding: 15px;
+        height: auto;
+    }
+
+    /* --- DESCRIÇÃO E ACCORDION --- */
+    .title-with-dividers {
+        font-size: 20px;
+        margin: 30px 0;
+    }
+    .text, .accordion details {
+        margin: 0 10px 15px 10px;
+        font-size: 16px;
+    }
+    .accordion summary {
+        font-size: 16px;
+    }
+
+    /* --- PRODUTOS RELACIONADOS --- */
+    .related-product {
+        font-size: 25px;
+        margin: 20px 0;
+    }
+    .related-product .divider {
+        width: 20%;
+    }
+    .carousel-track {
+        gap: 30px;
+        flex-wrap: wrap; /* Permite que os produtos quebrem a linha */
+    }
+    .product-card {
+        width: calc(100% - 10px); /* Dois produtos por linha */
+    }
+    
+    /* --- FOOTER --- */
+    .footer-top {
+        display: none;
+    }
+    .footer-bottom {
+        flex-direction: column;
+        gap: 30px;
+        padding: 20px;
+    }
+    .footer-info {
+        position: static;
+        transform: none;
+        padding: 0;
+        order: 2; /* Ordem para o mobile */
+    }
+    .footer-logo { order: 1; }
+    .footer-social { order: 3; }
+
+        /* Exibe o botão do menu hambúrguer */
+    .menu-toggle {
+        display: block;
+        left: 20px;
+        right: auto;
+        top: calc(7.5vh - 15px);
+        /* Centraliza na nova altura do topo */
+    }
+
+    /* Quando o menu está ativo, fixa o botão para ele rolar com o menu */
+    .menu-toggle.active {
+        position: fixed;
+        top: 51px;
+        left: 20px;
+    }
+
+    /* Esconde a navegação e a prepara para deslizar */
+    nav.nav-main {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 280px;
+        padding-top: 80px;
+        background-color: #ffffff;
+        box-shadow: 4px 0px 15px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+        gap: 10px;
+        transform: translateX(-100%);
+        transition: transform 0.4s ease-in-out;
+    }
+
+    /* Mostra a navegação quando a classe 'active' é adicionada */
+    nav.nav-main.active {
+        transform: translateX(0);
+    }
+
+    /* Estiliza os links dentro do menu lateral */
+    .nav-main a {
+        width: 100%;
+        text-align: left;
+        padding: 15px 30px;
+        font-size: 20px;
+        opacity: 0.8;
+    }
+
+    .nav-main a:hover {
+        background-color: #f0f0f0;
+    }
 }

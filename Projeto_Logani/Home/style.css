@@ -347,8 +347,10 @@ nav.nav-main {
    
 
     .topo {
-        justify-content: center; 
-        padding: 0 50px; 
+        height: 15vh;
+        /* Altura menor para o topo no mobile */
+        justify-content: center;
+        padding: 0 50px;
     }
 
     .menu-toggle {
@@ -427,9 +429,9 @@ nav.nav-main {
     }
 
     .menu-toggle.active {
-        position: fixed; 
-        top: 20px;      
-        left: 20px;     
+        position: fixed;
+        top: 35px;
+        left: 20px;
     }
 
     #banner {

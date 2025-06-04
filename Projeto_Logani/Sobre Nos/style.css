@@ -258,7 +258,7 @@ section .divider {
 .menu-toggle .bar {
     display: block;
     width: 25px;
-    height: 4px; 
+    height: 3px; 
     background-color: #333;
     margin: 5px auto;
     transition: all 0.3s ease-in-out;
@@ -331,6 +331,9 @@ section .divider {
 
     .topo {
         height: 15vh;
+        /* Altura menor para o topo no mobile */
+        justify-content: center;
+        padding: 0 50px;
     }
     
     .menu-toggle {
@@ -342,23 +345,21 @@ section .divider {
 
     /* Animação para "X" */
     .menu-toggle.active .bar:nth-child(1) {
-        transform: translateY(9px) rotate(45deg); /* Ajuste fino */
+        transform: translateY(8px) rotate(45deg); /* Ajuste fino */
     }
     .menu-toggle.active .bar:nth-child(2) {
         opacity: 0;
     }
     .menu-toggle.active .bar:nth-child(3) {
-        transform: translateY(-9px) rotate(-45deg); /* Ajuste fino */
+        transform: translateY(-8px) rotate(-45deg); /* Ajuste fino */
     }
     
-    .menu-toggle.active {
+   .menu-toggle.active {
         position: fixed;
-        top: 20px;
+        margin-top: 15px;
+        top: 35px;
         left: 20px;
-        margin-top: 30px;
-        padding-bottom: 30px;
     }
-
 
 
     nav.nav-main {
@@ -374,7 +375,7 @@ section .divider {
         left: 0;
         height: 100vh;
         width: 280px;
-        padding-top: 110px;
+        padding-top: 80px;
 
         background-color: #ffffff;
         box-shadow: 4px 0px 15px rgba(0, 0, 0, 0.2);

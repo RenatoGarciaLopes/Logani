@@ -19,6 +19,13 @@
                 <img src="..\logani-logo.png" alt="Logo" class="logo" />
             </a>
         </div>
+
+        <button class="menu-toggle" id="mobile-menu" aria-label="Menu" aria-expanded="false">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+
         <nav class="nav-main">
             <a href="..\Home\index.html" class="nav-link" data-text="Home">Home</a>
             <a href="..\Produtos\produtos.html" class="nav-link" data-text="Produtos">Produtos</a>
@@ -52,7 +59,7 @@
                     <textarea placeholder="Ex: Sua mensagem" id="message" name="message" rows="6" required></textarea>
                 </div>
 
-                <button type="submit">Enviar</button>
+                <button type="submit" id="btn-enviar">Enviar</button>
             </form>
         </div>
     </section>
@@ -91,6 +98,7 @@
             </div>
         </div>
     </footer>
+    <div class="overlay" id="overlay"></div>
     <script src="..\script.js"></script>
 </body>
 
