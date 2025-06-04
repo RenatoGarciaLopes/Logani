@@ -104,7 +104,7 @@ nav.nav-main {
     border: none;
     cursor: pointer;
     position: absolute;
-    top: calc(9vh - 15px);
+    top: calc(9vh - 15px); 
     right: 20px;
     z-index: 1002;
 }
@@ -407,9 +407,7 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 
-/* --- INÍCIO DAS REGRAS DE RESPONSIVIDADE --- */
 
-/* Telas de Tablet (até 1024px) */
 @media (max-width: 1024px) {
 
     .footer-top {
@@ -429,14 +427,48 @@ input[type="search"]::-webkit-search-results-decoration {
         flex-wrap: wrap;
     }
 
-    .footer-info {
-        order: -1;
-        margin-bottom: 20px;
+    .footer-bottom {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 20px;
+        padding: 10px 20px;
     }
 
-    .footer-bottom {
-        justify-content: center;
-        text-align: center;
+    .footer{
+        padding: 20px 20px 20px;;
+    }
+    
+    .footer-logo {
+        order: 1; 
+        max-width: 50px;
+    }
+
+    /* 2. Informações de contato em segundo */
+    .footer-info {
+        order: 2; 
+        line-height: 1.6;
+    }
+
+    /* 3. Redes sociais em terceiro */
+    .footer-social {
+        margin-top: 40px;
+        order: 3;
+        display: flex;
+        gap: 25px;
+        font-size: 1.8em;
+    }
+        
+    /* 4. Copyright por último */
+    .footer-copyright {
+        order: 4;
+        font-size: 0.8rem;
+        opacity: 0.7;
+    }
+
+    .logo{
+        height: 150px;
+        width: 150px;
     }
 }
 
@@ -451,11 +483,6 @@ input[type="search"]::-webkit-search-results-decoration {
         padding: 0 50px;
     }
 
-    .logo {
-        width: 200px;
-        /* Logo menor para caber melhor */
-        height: auto;
-    }
 
     /* Exibe o botão do menu hambúrguer */
     .menu-toggle {
@@ -539,14 +566,4 @@ input[type="search"]::-webkit-search-results-decoration {
         /* Diminui o espaço entre os produtos */
     }
 
-    /* Ajustes no Rodapé */
-    .footer-bottom {
-        flex-direction: column;
-        gap: 30px;
-    }
-
-
-    .footer-social {
-        font-size: 1.8em;
-    }
 }

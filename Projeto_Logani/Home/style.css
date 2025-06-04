@@ -293,9 +293,52 @@ nav.nav-main {
     nav.nav-main { gap: 40px; }
     .carousel-track { gap: 60px; }
     .destaques-container { font-size: 50px; }
-    .footer-bottom { justify-content: center; text-align: center; }
     .footer-top {
         display: none;
+    }
+
+        .footer-bottom {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 20px;
+        padding: 10px 20px;
+    }
+
+    .footer{
+        padding: 20px 20px 20px;;
+    }
+    
+    .footer-logo {
+        order: 1; 
+        max-width: 50px;
+    }
+
+    /* 2. Informações de contato em segundo */
+    .footer-info {
+        order: 2; 
+        line-height: 1.6;
+    }
+
+    /* 3. Redes sociais em terceiro */
+    .footer-social {
+        margin-top: 40px;
+        order: 3;
+        display: flex;
+        gap: 25px;
+        font-size: 1.8em;
+    }
+        
+    /* 4. Copyright por último */
+    .footer-copyright {
+        order: 4;
+        font-size: 0.8rem;
+        opacity: 0.7;
+    }
+
+    .logo{
+        height: 150px;
+        width: 150px;
     }
 
 }
@@ -310,10 +353,10 @@ nav.nav-main {
 
     .menu-toggle {
         display: block;
-        left: 20px; 
-        right: auto; 
-        z-index: 1001; 
-        top: 20px
+        left: 20px;
+        right: auto;
+        top: calc(7.5vh - 15px);
+        /* Centraliza na nova altura do topo */
     }
 
 
@@ -392,7 +435,13 @@ nav.nav-main {
     #banner {
         background-image: url('../Banerr_mobile.png');
         margin-top: 20px;
-        height: 250px; 
+        
+        width: 100%; /* O banner ocupa toda a largura disponível */
+        height: auto; /* A altura é calculada automaticamente */
+        aspect-ratio: 3 / 2; /* Exemplo: uma proporção de 16 de largura para 7 de altura. AJUSTE conforme sua imagem! */
+
+        background-size: cover;
+        background-position: center;
     }
 }
 

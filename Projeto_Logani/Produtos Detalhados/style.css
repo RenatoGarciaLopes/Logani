@@ -37,13 +37,15 @@ body {
     font-family: 'WorkSans-regular', sans-serif;
     display: flex;
     flex-direction: column;
+    background-color: #fbfcf6;
+
 }
 
 header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #fff;
+    background-color: #fbfcf6;
 }
 
 .topo {
@@ -53,7 +55,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #fff;
+    background-color: #fbfcf6;
 }
 
 .logo {
@@ -98,6 +100,7 @@ nav.nav-main {
 .container {
     margin: 0 auto;
     padding: 40px 20px;
+    
 }
 
 .product {

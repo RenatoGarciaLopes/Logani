@@ -142,8 +142,7 @@ section .divider {
 .footer {
     background-color: #B8B7B7;
     color: #fff;
-    padding: 20px 0;
-    position: relative;
+    padding: 40px 20px 20px;
     margin-top: auto;
 }
 
@@ -153,21 +152,16 @@ section .divider {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 30px;
 }
 
-.footer-top {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-
-.footer-nav ul {
+.footer-top .footer-nav ul {
     list-style: none;
-    margin: 0;
-    padding: 0;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 70px;
+    padding: 0;
 }
 
 .footer-nav a {
@@ -178,76 +172,338 @@ section .divider {
 }
 
 .footer-nav a:hover {
-    color: #f0f0f0;
+    color: #ddd;
 }
 
 .footer-bottom {
     width: 100%;
-    position: relative;
-    min-height: 150px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    padding: 0 40px;
+    gap: 20px;
 }
 
-.footer-logo {
+.footer-logo,
+.footer-info,
+.footer-social {
+    flex: 1;
     display: flex;
-    align-items: center;
     justify-content: center;
-    z-index: 1;
+    align-items: center;
+}
+
+.footer-info {
+    flex-direction: column;
+    text-align: center;
+    line-height: 1.5;
 }
 
 .footer-logo img {
     height: 150px;
-    width: auto;
     filter: brightness(0) invert(1);
 }
 
 .footer-social {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-    height: 100%;
-    z-index: 1;
+    gap: 20px;
+    font-size: 1.5em;
 }
 
 .footer-social a {
     color: #fff;
-    font-size: 2.2em;
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .footer-social a:hover {
-    color: #f0f0f0;
-}
-
-.footer-info {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    height: 100%;
-    padding-top: 40px;
-}
-
-.footer-info p {
-    margin: 5px 0;
-    font-size: 0.95em;
-}
-
-.footer-info p:last-child {
-    margin-bottom: 0;
+    color: #ddd;
 }
 
 .footer-copyright {
     width: 100%;
     text-align: center;
     font-size: 0.9em;
+    padding-top: 20px;
+}
+
+/* Overlay para o fundo quando o menu estiver aberto */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+}
+
+
+
+.menu-toggle .bar {
+    display: block;
+    width: 25px;
+    height: 4px; 
+    background-color: #333;
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+}
+
+
+
+@media (max-width: 1024px) {
+    nav.nav-main {
+        gap: 40px;
+    }
+
+    .destaques-container {
+        font-size: 50px;
+    }
+
+    .logo {
+        height: 150px;
+        width: 150px;
+    }
+
+    .footer-top {
+        display: none;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 20px;
+        padding: 10px 20px;
+    }
+
+    .footer {
+        padding: 20px 20px 20px;
+        ;
+    }
+
+    .footer-logo {
+        order: 1;
+        max-width: 50px;
+    }
+
+
+    .footer-info {
+        order: 2;
+        line-height: 1.6;
+    }
+
+    .footer-social {
+        margin-top: 40px;
+        order: 3;
+        display: flex;
+        gap: 25px;
+        font-size: 1.8em;
+    }
+
+    /* 4. Copyright por último */
+    .footer-copyright {
+        order: 4;
+        font-size: 0.8rem;
+        opacity: 0.7;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+
+
+    .topo {
+        height: 15vh;
+    }
+    
+    .menu-toggle {
+        display: block;
+        top: calc(7.5vh - 17px); /* Ajuste fino para centralizar com a nova altura da barra */
+        left: 20px;
+        z-index: 1001;
+    }
+
+    /* Animação para "X" */
+    .menu-toggle.active .bar:nth-child(1) {
+        transform: translateY(9px) rotate(45deg); /* Ajuste fino */
+    }
+    .menu-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-toggle.active .bar:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg); /* Ajuste fino */
+    }
+    
+    .menu-toggle.active {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        margin-top: 30px;
+        padding-bottom: 30px;
+    }
+
+
+
+    nav.nav-main {
+
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+
+
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 280px;
+        padding-top: 110px;
+
+        background-color: #ffffff;
+        box-shadow: 4px 0px 15px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+        gap: 10px;
+
+
+        transform: translateX(-100%);
+        transition: transform 0.4s ease-in-out;
+    }
+
+
+    nav.nav-main.active {
+        transform: translateX(0);
+    }
+
+
+    .nav-main a {
+        width: 100%;
+        text-align: left;
+        padding: 15px 30px;
+        font-size: 20px;
+        opacity: 0.8;
+    }
+
+    .nav-main a:hover {
+        background-color: #f0f0f0;
+    }
+
+
+
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.4s ease, visibility 0.4s ease;
+    }
+
+
+    .overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .menu-toggle.active {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+    }
+
+    section {
+        position: relative;
+        padding: 40px 15px 20px;
+        /* Adiciona espaço no topo para o título falso */
+    }
+
+
+    section::before {
+        content: "Sobre nós";
+        display: block;
+        font-size: 28px;
+        color: #333;
+        text-align: center;
+
+    }
+
+    section ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        /* Usamos Grid Layout para o poder de reorganização */
+        grid-template-columns: 1fr 1fr;
+        /* Duas colunas de tamanho igual */
+        gap: 15px;
+        /* Espaço entre as colunas e linhas */
+        justify-items: center;
+        /* Centraliza os itens (imagens) em suas colunas */
+    }
+
+    section li {
+        display: contents;
+        /* Mágica! Faz os filhos do <li> se comportarem como filhos diretos do <ul> */
+    }
+
+    /* 2. Posicionamos o primeiro parágrafo */
+    section li:nth-child(1) p {
+        grid-column: 1 / 3;
+        /* Ocupa as duas colunas */
+        grid-row: 1;
+        /* Fica na primeira linha */
+        text-align: justify;
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    section li:nth-child(1) img {
+        grid-column: 1 / 2;
+        grid-row: 2;
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+
+    section li:nth-child(2) img {
+        grid-column: 2 / 3;
+        /* Ocupa a segunda coluna */
+        grid-row: 2;
+        /* Fica na mesma linha que a outra imagem */
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+
+    /* 4. Posicionamos o segundo parágrafo */
+    section li:nth-child(2) p {
+        grid-column: 1 / 3;
+        /* Ocupa as duas colunas */
+        grid-row: 3;
+        /* Fica na terceira linha */
+        text-align: justify;
+        font-size: 16px;
+        line-height: 1.6;
+    }
 }
