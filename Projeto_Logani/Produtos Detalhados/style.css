@@ -304,7 +304,7 @@ details[open] .content {
 
 .product-card p {
     font-size: 18px;
-    color: #000;
+    color: #6A6060;
     text-align: center;
     margin-top: 20px;
 }
@@ -393,7 +393,7 @@ details[open] .content {
 
 .divisao {
     width: 98%;
-    margin: 0 auto 100px;
+    margin: 0 auto 50px;
 }
 
 .footer {
@@ -614,7 +614,12 @@ details[open] .content {
 
 /* --- RESPONSIVIDADE PARA CELULARES (ATÉ 768PX) --- */
 @media (max-width: 768px) {
-    /* --- CABEÇALHO E MENU --- */
+    
+    .logo{
+
+        height: 150px;
+        width: 150px;
+    }
 
     .topo {
         height: 15vh;
