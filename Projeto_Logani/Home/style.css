@@ -271,13 +271,15 @@ nav.nav-main {
 
 .footer-social {
     gap: 20px;
-    font-size: 1.5em; /* Aumenta o tamanho do ícone pelo container */
+    font-size: 1.5em; 
+    
 }
 
 .footer-social a {
     color: #fff;
     text-decoration: none;
     transition: color 0.3s ease;
+    margin: 0;
 }
 
 .footer-social a:hover { color: #ddd; }
@@ -303,16 +305,17 @@ nav.nav-main {
         align-items: center;
         text-align: center;
         gap: 20px;
-        padding: 10px 20px;
+        
     }
 
     .footer{
-        padding: 20px 20px 20px;;
+        padding: 0 20px 20px;
     }
     
     .footer-logo {
         order: 1; 
         max-width: 50px;
+        max-height: 100px;
     }
 
     /* 2. Informações de contato em segundo */
@@ -323,7 +326,7 @@ nav.nav-main {
 
     /* 3. Redes sociais em terceiro */
     .footer-social {
-        margin-top: 40px;
+        margin-top: 20px;
         order: 3;
         display: flex;
         gap: 25px;
@@ -335,6 +338,7 @@ nav.nav-main {
         order: 4;
         font-size: 0.8rem;
         opacity: 0.7;
+        padding-top: 0;
     }
 
     .logo{
