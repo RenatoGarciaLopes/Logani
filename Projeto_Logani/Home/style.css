@@ -14,8 +14,8 @@
 
 @font-face {
     font-family: 'WorkSans-light';
-    src: url('../Fonte/WorkSans-Light.otf') format('truetype');
-    font-weight: normal;
+    src: url('../Fonte/WorkSans-ExtraLight.otf') format('truetype');
+    font-weight: lighter;
     font-style: normal;
 }
 
@@ -24,6 +24,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background-color: #FCFCF8;
 }
 
 main {
@@ -34,7 +35,7 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #fff;
+    background-color: #FCFCF8;
 }
 
 .topo {
@@ -44,7 +45,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #fff;
+    background-color: #FCFCF8;
 }
 
 .logo {
@@ -133,12 +134,12 @@ nav.nav-main {
     font-family: 'WorkSans-light', sans-serif;
     font-weight: 700;
     font-size: 70px;
-    color: #000;
+    color: #6A6060;
 }
 
 .destaques-container .divider {
     height: 2px;
-    background-color: #000;
+    background-color: #6A6060;
     border-radius: 2px;
     width: 40%;
 }
@@ -146,7 +147,7 @@ nav.nav-main {
 .divisao {
     width: calc(100% - 40px);
     height: 2px;
-    background-color: #000;
+    background-color: #6A6060;
     border-radius: 2px;
     margin: 50px auto;
 }

@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <script src="..\script.js"></script>
+
 
     <header>
         <div class="topo">
@@ -19,14 +19,20 @@
                 <img src="..\logani-logo.png" alt="Logo" class="logo" />
             </a>
         </div>
+
+        <button class="menu-toggle" id="mobile-menu" aria-label="Menu" aria-expanded="false">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+
         <nav class="nav-main">
             <a href="..\Home\index.html" class="nav-link" data-text="Home">Home</a>
-            <a href="..\Produtos\produtos.html" class="nav-link active" data-text="Produtos">Produtos</a>
+            <a href="..\Produtos\produtos.html" class="nav-link" data-text="Produtos">Produtos</a>
             <a href="..\Sobre Nos\sobre-nos.html" class="nav-link" data-text="Sobre">Sobre</a>
             <a href="..\Contato\contato.html" class="nav-link" data-text="Contato">Contato</a>
         </nav>
     </header>
-
     <section>
         <div class="container">
             <div class="product">
@@ -40,43 +46,60 @@
                 </div>
 
                 <div class="info">
-                    <h1>N.7 EQUILIBRIO</h1>
+                    <h1>N.7 EQUILÍBRIO</h1>
                     <p class="price">R$ 169,90</p>
-                    <a href="https://w.app/n9" target="_blank" class="buy-button">Comprar</a>
+                    <a href="https://w.app/logani_n7" target="_blank" class="buy-button">Comprar</a>
                 </div>
             </div>
 
             <div class="description">
                 <div class="title-with-dividers">
                     <div class="divider"></div>
-                    <span>N.7 EUFORIA – Fragrância de broto de bambu com alecrim</span>
+                    <span>N.7 EQUILÍBRIO – Fragrância de bamboo e alecrim</span>
                     <div class="divider"></div>
                 </div>
 
                 <p class="text">
-                    Com um equilibrio de fazer o que quer, na hora que quer, a vela N.7 é o seu complemento para o
-                    autocuidado no final do dia.
-                    Seu aroma proporciona instantes únicos e é indispensável não apenas para momentos de equilibrio, mas
-                    também para o conforto,
-                    completando a experiência de cuidado pessoal e amor-próprio.<br>
-                    Todas as velas da Coleção Ímpar acompanham a caixa exclusiva produzida à mão.
+                   Com um aroma tão suave quanto a natureza, a vela N.7 traz o frescor de uma brisa leve da tarde ao passear pelo parque,
+                    transmitindo uma sensação de paz em momentos relaxantes e foco durante períodos de concentração, 
+                    sempre mantendo o equilíbrio necessário para cada ocasião.<br>
+                   <i>Todas as velas da Coleção Ímpar acompanham a caixa exclusiva produzida à mão.</i>
                 </p>
 
                 <div class="accordion">
                     <details>
-                        <summary>Fragrância de broto de bambu com alecrim:<i class="fa-solid fa-chevron-down seta"></i></summary>
-                        <p>Aroma aconchegante que mistura broto de bambu com a suavidade do alecrim.</p>
+                        <summary>Fragrância de bamboo e alecrim:<i class="fa-solid fa-chevron-down seta"></i></summary>
+                        <p>Aroma cítrico e refrescante para a sua tarde tranquila.<br>
+                            <strong>Família olfativa:</strong> Cítrico Aromático<br>
+                            <strong>Notas de saída:</strong> Rosmarinho<br>
+                            <strong>Notas de corpo:</strong> Salvia, Muguet<br>
+                            <strong>Notas de fundo:</strong> Sândalo<br>
+                            <strong>Projeção do aroma no ambiente:</strong> suave</p>
                     </details>
 
                     <details>
                         <summary>Composição:<i class="fa-solid fa-chevron-down seta"></i></summary>
-                        <p>Cera vegetal, essência de broto de bambu e alecrim, pavio de algodão.</p>
+                        <p>Blend de ceras vegetais (coco, arroz e palma) 100% livre de parafina<br>
+                            Fragrâncias Premium<br>
+                            Pavio 100% algodão<br>
+                            Peso líquido 200g<br>
+                            Tempo de queima: 30 – 40 horas<br>
+                            Produto vegano e biodegradável produzida à mão<br>
+                            Embalagem de vidro reutilizável e reciclável com dimensões 8x8cm</p>
                     </details>
 
                     <details>
                         <summary>Cuidados:<i class="fa-solid fa-chevron-down seta"></i></summary>
-                        <p>Mantenha longe de materiais inflamáveis. Não deixar acesa sem supervisão. Manter fora do
-                            alcance de crianças.</p>
+                        <p>A vela Logani, assim como você, merece atenção e cuidados.<br><br>
+                            Retire-a da caixa e acenda em uma superfície plana longe de correntes de ar.
+                            Deixe-a queimar por cerca de uma hora, até que a cera derreta alcançando as bordas. 
+                            Mantenha a vela acesa por um período máximo de 3 horas e longe do alcance de crianças, animais, produtos ou objetos inflamáveis.<br><br>
+                            Ao apagar, evite assoprar; abafe a chama ou use um utensílio para mergulhar os pavios na cera e endireite-os logo em seguida. 
+                            Apare os pavios com a cera sólida para evitar que a chama fique muito alta, evitando acidentes. 
+                            Use sua vela de maneira segura e consciente, não a deixe sem supervisão.<br><br>
+
+                            Devido aos ingredientes naturais, a vela pode sofrer alteração de cor após ser acesa, 
+                            mas isso não interfere na qualidade do produto.</p>
                     </details>
                 </div>
             </div>
@@ -145,6 +168,8 @@
             </div>
         </div>
     </footer>
+    <div class="overlay" id="overlay"></div>
+    <script src="..\script.js"></script>
 </body>
 
 </html>

@@ -103,6 +103,7 @@ nav.nav-main {
     
 }
 
+
 .product {
     display: flex;
     gap: 40px;
@@ -211,6 +212,7 @@ h1 {
 .title-with-dividers span {
     white-space: wrap;
     text-align: center;
+    color: #6A6060;;
 }
 
 .description {
@@ -224,6 +226,11 @@ h1 {
     margin: 20px 145px 30px 145px;
     font-family: 'WorkSans-regular';
     text-align: justify;
+    color: #6A6060;
+}
+
+.accordion{
+    line-height: 1.7;
 }
 
 .accordion details {
@@ -232,15 +239,9 @@ h1 {
     border-top: 1px solid rgba(0, 0, 0, 0.5);
     font-size: 20px;
     color: #6A6060;
+    text-align: justify;
 }
 
-.accordion details {
-    padding: 10px;
-    margin: 0 145px 10px 145px;
-    border-top: 1px solid rgba(0, 0, 0, 0.5);
-    font-size: 20px;
-    color: #6A6060;
-}
 
 .accordion summary {
     display: flex;
@@ -374,14 +375,14 @@ details[open] .content {
     margin: 40px 0;
     font-family: 'WorkSans-light';
     font-size: 60px;
-    color: #000;
+    color: #6A6060;
     text-align: center;
 }
 
 .related-product .divider,
 .divisao {
     height: 2px;
-    background-color: #000;
+    background-color: #6A6060;;
     border-radius: 2px;
 }
 
