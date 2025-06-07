@@ -410,9 +410,6 @@ input[type="search"]::-webkit-search-results-decoration {
 
 @media (max-width: 1024px) {
 
-    .footer-top {
-        display: none;
-    }
 
     .carousel-track {
         justify-content: center;
@@ -427,21 +424,26 @@ input[type="search"]::-webkit-search-results-decoration {
         flex-wrap: wrap;
     }
 
+        .footer-top {
+        display: none;
+    }
+
     .footer-bottom {
         flex-direction: column;
         align-items: center;
         text-align: center;
         gap: 20px;
-        padding: 10px 20px;
+        
     }
 
     .footer{
-        padding: 20px 20px 20px;;
+        padding: 0 20px 20px;
     }
     
     .footer-logo {
         order: 1; 
         max-width: 50px;
+        max-height: 100px;
     }
 
     /* 2. Informações de contato em segundo */
@@ -452,7 +454,7 @@ input[type="search"]::-webkit-search-results-decoration {
 
     /* 3. Redes sociais em terceiro */
     .footer-social {
-        margin-top: 40px;
+        margin-top: 20px;
         order: 3;
         display: flex;
         gap: 25px;
@@ -464,7 +466,9 @@ input[type="search"]::-webkit-search-results-decoration {
         order: 4;
         font-size: 0.8rem;
         opacity: 0.7;
+        padding-top: 0;
     }
+
 
     .logo{
         height: 150px;
