@@ -399,8 +399,7 @@ details[open] .content {
 .footer {
     background-color: #B8B7B7;
     color: #fff;
-    padding: 20px 0;
-    position: relative;
+    padding: 40px 20px 20px;
     margin-top: auto;
 }
 
@@ -410,21 +409,16 @@ details[open] .content {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 30px;
 }
 
-.footer-top {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-
-.footer-nav ul {
+.footer-top .footer-nav ul {
     list-style: none;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 70px;
     padding: 0;
-    margin: 0;
 }
 
 .footer-nav a {
@@ -434,9 +428,7 @@ details[open] .content {
     transition: color 0.3s ease;
 }
 
-.footer-nav a:hover {
-    color: #f0f0f0;
-}
+.footer-nav a:hover { color: #ddd; }
 
 .footer-bottom {
     width: 100%;
@@ -444,69 +436,47 @@ details[open] .content {
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    padding: 0 40px;
-    min-height: 150px;
-    position: relative;
+    gap: 20px;
 }
 
-.footer-logo {
+.footer-logo, .footer-info, .footer-social {
+    flex: 1;
     display: flex;
-    align-items: center;
     justify-content: center;
-    z-index: 1;
+    align-items: center;
+}
+
+.footer-info {
+    flex-direction: column;
+    text-align: center;
+    line-height: 1.5;
 }
 
 .footer-logo img {
     height: 150px;
-    width: auto;
     filter: brightness(0) invert(1);
 }
 
 .footer-social {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-    height: 100%;
-    z-index: 1;
+    gap: 20px;
+    font-size: 1.5em; 
+    
 }
 
 .footer-social a {
     color: #fff;
-    font-size: 2.2em;
     text-decoration: none;
     transition: color 0.3s ease;
+    margin: 0;
 }
 
-.footer-social a:hover {
-    color: #f0f0f0;
-}
-
-.footer-info {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    height: 100%;
-    padding-top: 40px;
-}
-
-.footer-info p {
-    margin: 5px 0;
-    font-size: 0.95em;
-}
-
-.footer-info p:last-child {
-    margin-bottom: 0;
-}
+.footer-social a:hover { color: #ddd; }
 
 .footer-copyright {
     width: 100%;
     text-align: center;
     font-size: 0.9em;
+    padding-top: 20px;
 }
 
 .overlay {
